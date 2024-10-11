@@ -1,0 +1,481 @@
+<html> 
+<head> 		
+
+<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>
+		
+<script type="text/javascript">
+$(function() {
+$('#slider').carouFredSel({
+width: '100%',
+		align: false,
+items: 3,
+	items: {
+width: $('#wrapper').width() * 0.15,
+height: 500,
+		visible: 1,
+minimum: 2
+	},
+scroll: {
+items: 1,
+timeoutDuration : 5000,
+onBefore: function(data) {
+//	find current and next slide
+	var currentSlide = $('.slide.active', this),
+		nextSlide = data.items.visible,
+	_width = $('#wrapper').width();
+	//	resize currentslide to small version
+ currentSlide.stop().animate({
+	width: _width * 0.15
+	});	currentSlide.removeClass('active' );
+			
+							//	hide current block
+							data.items.old.add( data.items.visible ).find( '.slide-block' ).stop().fadeOut();					
+			
+							//	animate clicked slide to large size
+							nextSlide.addClass( 'active' );
+							nextSlide.stop().animate({
+								width: _width * 0.7
+							});						
+						},
+						onAfter: function(data) {
+							//	show active slide block
+							data.items.visible.last().find( '.slide-block' ).stop().fadeIn();
+						}
+					},
+					onCreate: function(data){
+			
+						//	clone images for better sliding and insert them dynamacly in slider
+						var newitems = $('.slide',this).clone( true ),
+							_width = $('#wrapper').width();
+
+						$(this).trigger( 'insertItem', [newitems, newitems.length, false] );
+			
+						//	show images 
+						$('.slide', this).fadeIn();
+						$('.slide:first-child', this).addClass( 'active' );
+						$('.slide', this).width( _width * 0.15 );
+			
+						//	enlarge first slide
+						$('.slide:first-child', this).animate({
+							width: _width * 0.7
+						});
+			
+						//	show first title block and hide the rest
+						$(this).find( '.slide-block' ).hide();
+						$(this).find( '.slide.active .slide-block' ).stop().fadeIn();
+					}
+				});
+			
+				//	Handle click events
+				$('#slider').children().click(function() {
+					$('#slider').trigger( 'slideTo', [this] );
+				});
+			
+				//	Enable code below if you want to support browser resizing
+				$(window).resize(function(){
+			
+					var slider = $('#slider'),
+						_width = $('#wrapper').width();
+			
+					//	show images
+					slider.find( '.slide' ).width( _width * 0.15 );
+			
+					//	enlarge first slide
+					slider.find( '.slide.active' ).width( _width * 0.7 );
+			
+					//	update item width config
+					slider.trigger( 'configuration', ['items.width', _width * 0.15] );
+				});
+
+			});
+		</script>
+		
+<style type="text/css">
+	html, body {
+height: 100%;
+padding: 0;margin: 0;
+}
+			
+body {
+	background: url("f.gif");
+
+   background-position:  80% 40%;
+
+   background-size:  100% 100%;;
+background-repeat: no-repeat;
+   width:100%;
+   height:100%;	}
+
+body * {
+font-family: Arial, Geneva, SunSans-Regular, sans-serif;			font-size: 12px;
+color: #cdc9c5;
+line-height: 12px;
+			}
+
+			#wrapper {
+height: 100%;
+	width: 100%;
+min-height: 300px;
+min-width: 800px;
+	padding-top: 12px;
+}
+	#slider {
+margin: 0px 0 0 0;
+height: 300px;
+overflow: hidden;
+				background: url(img/ajax-loader.gif) center center no-repeat;
+}
+	#slider .slide {
+position: relative;
+	display: none;
+	height: 300px;
+	float: left;
+	background-position: center right;
+		cursor: pointer;
+border-left: 1px solid #fff;
+			}#slider .slide:first-child {
+				border: black;
+			}
+			
+			#slider .slide.active {
+				cursor: default;
+			}
+			
+			#slider .slide-block {
+				position: absolute;
+				left: 20px;
+				bottom: 5px;
+				display: inline-block;
+				width: 450px;
+				background-color: #fff;
+				background-color: rgba(249, 112, 32, 0.7);	
+				padding: 20px;
+				font-size: 12px;
+				color: #134B94;
+				border: 3px solid #ddddd;
+				overflow: hidden;
+				border-radius: 2px;
+			}
+			
+			#slider .slide-block h4 {
+				font-size: 36px;
+				font-weight: bold;
+				margin: 0 0 1px 0;
+				line-height: 1;
+			}
+			#slider .slide-block p {
+				margin: 0;
+			}
+
+			#donate-spacer {
+				height: 0;
+			}
+			#donate {
+				border-top: 1px solid #999;
+				width: 800px;
+				padding: 50px 75px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#donate p, #donate form {
+				margin: 0;
+				float: left;
+			}
+			#donate p {
+				width: 1000px;
+				color: #999;
+			}
+			#donate form {
+				width: 100px;
+			}
+		</style>
+	</head>
+	
+
+</head> 
+	
+		
+
+
+ <body> 
+
+<div id="recuadro1"> 
+
+<table border="0"width="1200px" class="tableContainer " cellspacing="1px"HEIGHT="250px"style="position:absolute;top:60px;left:400px;>
+
+
+
+<tr border="0"width="1200px" HEIGHT="95">
+
+<Td COLSPAN=7 HEIGHT="30"><a href="consultoria.html"><img src="consultoria de aa.gif"  border="0" HEIGHT="50"alt="ir a inicio" ></Td>
+
+
+
+<td width="75"></td>
+<td width="75"></td>
+<td width="75"></td>
+<td width="75"></td>
+<td width="75"></td>
+<td width="75"><!-- Contador de visitas -->
+<a href="http://www.websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
+<img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=89621"width="75"></a>
+<!-- Fin Contador de visitas --></td>
+
+</tr>
+
+<tr border="1"width="1235px" HEIGHT="10px">
+
+<td width="95"></td>	    	
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+
+</tr>
+
+<tr border="1"width="1235px" HEIGHT="10px">
+
+<td width="95"></td>	    	
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+
+</tr>
+
+<tr  border="1"width="1235px" HEIGHT="95px" >
+
+
+<td width="95px"></td>
+
+<td COLSPAN=6 ROWSPAN=2 width="95px"><img src="arqui.gif" HEIGHT="120xp"></td>
+<td width="95px" ROWSPAN=2><div class="divspoiler">
+<a href="javascript:void(0);" onclick="if (this.parentNode.nextSibling.childNodes[0].style.display != '') { this.parentNode.nextSibling.childNodes[0].style.display = ''; } else { this.parentNode.nextSibling.childNodes[0].style.display = 'none';}" ><img src="mostrar.gif" HEIGHT="30xp" &#9660;&#9650;></a>
+</div><div><div class="spoiler" style="display: none;">
+<a href="arq1.html"><FONT FACE="Swis721 BT"COLOR="black"<h><img src="arqui.gif" HEIGHT="30xp"><h/>
+<a href="evo arq.html"><FONT FACE="Swis721 BT"COLOR="black"<h><img src="arqui.gif" HEIGHT="30xp"><h/>
+<a href="contactanos1.html"><FONT FACE="Swis721 BT"COLOR="black"<h><img src="consultas.gif" HEIGHT="30xp"><h/>
+</div></div></td>
+<td width="95px"></td>
+<td width="95px"></td>
+<td width="95px" ></td>
+<td width="95px"></td>
+<td width="95px"></td>
+
+</tr>
+
+<tr  width="1235px" HEIGHT="95px" >
+
+<td width="95xp"></td>
+
+<td width="95xp"></td>
+
+<td width="95xp"></td>
+<td width="95xp"></td>
+<td width="95px"></td>
+<td width="95px"></td>
+
+
+
+</tr>
+
+</tr>
+
+
+
+
+
+</tr>
+
+<tr  border="0"width="1235px" HEIGHT="95px" >
+
+
+
+
+<td COLSPAN=13 ROWSPAN=3 width="95px"><center>
+
+
+
+<div id="wrapper">
+			<div id="slider">
+	
+				   
+<div class="slide" style="background-image: url(img/snow1.jpg);">
+				<div class="slide-block">
+<h4>Remodelacion</h4>
+<p>Consultanos</p>
+</div>
+	</div>
+
+
+<div class="slide" style="background-image: url(img/snow8.JPG);">
+				<div class="slide-block">
+<h4>Asesorias Tecnicas</h4>
+<p>Consultanos</p>
+</div>
+	</div>
+
+
+<div class="slide" style="background-image: url(img/snow4.JPG);">
+				<div class="slide-block">
+<h4>Proyectos</h4>
+<p>Consultanos</p>
+</div>
+	</div>
+		
+				
+
+<div class="slide" style="background-image: url(img/snow3.jpg);">
+				<div class="slide-block">
+<h4>Conduccion Tecnica</h4>
+<p>Consultanos</p>
+</div>
+	</div>
+	
+
+<div class="slide" style="background-image: url(img/snow6.jpg);">
+					<div class="slide-block">
+<h4>Administracion de Obra</h4>
+<p>Consultanos</p>
+</div>
+</div>
+		
+				
+
+<div class="slide" style="background-image: url(img/snow2.JPG);">
+					<div class="slide-block">
+<h4>Relevamientos</h4>
+<p>Consultanos</p>
+</div>
+</div>
+	
+
+<div class="slide" style="background-image: url(img/snow5.JPG);">
+					<div class="slide-block">
+<h4>Direccion Tecnica</h4>
+<p>Consultanos</p>
+</div>
+</div>
+
+
+<div class="slide" style="background-image: url(img/snow9.JPG);">
+					<div class="slide-block">
+<h4>Decoracion Interiores</h4>
+<p>Consultanos</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+		
+
+<div id="donate-spacer"></div>
+</div>
+
+	</center>	</td>
+
+
+
+
+
+
+
+</tr>
+
+<tr  width="1235px" HEIGHT="40px" >
+
+
+
+
+
+
+</tr>
+
+
+
+<tr border="1"width="1235px" HEIGHT="95px">
+
+
+
+
+
+
+</tr>
+
+<tr  border="1"width="1235px" HEIGHT="40px" >
+
+
+<td width="40px"></td>
+
+<centro><td width="40px" COLSPAN=9 ROWSP  
+>
+</td>
+
+<td width="40px"></td>
+<td width="40px"></td>
+<td width="40px" ></td>
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+
+<tr border="1"width="1235px" HEIGHT="75px">
+
+	    	
+
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"></td>
+<td width="95"COLSPAN=8><a href="diarios.html"><center><img src="logo/informacion.gif" 
+border="0" width="700xp"></img></a><center>copyrigh 2012 Mandanos un mensaje via email a 
+<a href="mailto:brascaarquitectos@gmail.com">brascaarquitectos@gmail.com</a></center></center></td>
+
+
+<td width="95"><a href="http://qr.afip.gob.ar/?qr=cAzL0CPI1gMq-5mRG8MEnQ,," target="_F960AFIPInfo"><img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" border="0"width="60"></a></td>
+<td width="95"><a href="http://qr.afip.gob.ar/?qr=q6QGxdoCQkjS_SM-K1xYKg,," target="_F960AFIPInfo"><img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" border="0"width="60"></a></td>
+
+
+</tr>
+</table>
+
+
+
+
+</div> 
+
+
+
+
+
+
+
+</body> </center>
+</html>
